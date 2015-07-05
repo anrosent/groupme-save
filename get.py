@@ -5,6 +5,8 @@ import argparse
 from urllib.error import HTTPError
 from urllib.request import urlopen, Request
 
+# TODO: OAuth instead of passing in X-Access-Token
+# TODO: List your chat rooms and select for groupid instead of providing it raw
 
 def make_url(groupid, before_id):
     qs = "?before_id=%s" % before_id if before_id is not None else ""
@@ -58,7 +60,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', metavar='config_file',help='Config file containing the token and groupid of your chatroom')
     parser.add_argument('-i', metavar='groupid', help='The ID of the chatroom you want to pull')
-    parser.add_argument('-t', metavar='token', help='The X-Access-Token header Groupme gave you on login')# . TODO: OAuth from here')
+    parser.add_argument('-t', metavar='token', help='The X-Access-Token header Groupme gave you on login')
     parser.add_argument('-o', metavar='outfile', help='Filename you want to write the history to')
     args = parser.parse_args()
 
