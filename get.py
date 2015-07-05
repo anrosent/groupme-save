@@ -5,9 +5,6 @@ import argparse
 from urllib.error import HTTPError
 from urllib.request import urlopen, Request
 
-# TODO: OAuth instead of passing in X-Access-Token
-# TODO: List your chat rooms and select for groupid instead of providing it raw
-
 def make_url(groupid, before_id):
     qs = "?before_id=%s" % before_id if before_id is not None else ""
     return "https://api.groupme.com/v3/groups/%s/messages%s" % (groupid, qs)
